@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Rating from "@mui/material/Rating";
@@ -7,6 +6,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -114,14 +114,31 @@ const Form = ({ password, passChars, setPassChars, passRating }) => {
           </Box>
         </Grid>
         <TextField
+          onClick={() => {
+            navigator.clipboard.writeText(password);
+          }}
           value={password}
           id="outlined-basic"
           label="Generated Password"
           InputProps={{
             readOnly: true,
+            style: {
+              fontSize: 20,
+              color: "PapayaWhip",
+            },
           }}
-          sx={{ mt: 5, width: 1 }}
+          InputLabelProps={{ style: { color: "PapayaWhip" } }}
+          sx={{ mt: 5, width: 1, fontSize: 30 }}
         />
+        <Button
+          onClick={() => {
+            navigator.clipboard.writeText(password);
+          }}
+          size="large"
+          sx={{ mt: 2, width: 1, fontSize: 16 }}
+        >
+          Save Password to Clipboard
+        </Button>
       </ThemeProvider>
     </div>
   );
