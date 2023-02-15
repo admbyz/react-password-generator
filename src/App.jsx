@@ -62,9 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title" onClick={calculateRating}>
-        Password Generator
-      </h1>
+      <h1 className="title">Password Generator</h1>
       <Form
         passChars={passChars}
         setPassChars={setPassChars}
